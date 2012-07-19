@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\LiveDocx;
+namespace ZendService\LiveDocx;
 
 use DateTime;
 
@@ -59,7 +59,7 @@ class MailMerge extends AbstractLiveDocx
      * installed) licensed LiveDocx server. For example:
      *
      * {code}
-     * $mailMerge = new \Zend\Service\LiveDocx\MailMerge(array (
+     * $mailMerge = new \ZendService\LiveDocx\MailMerge(array (
      *     'username'   => 'myUsername',
      *     'password'   => 'myPassword',
      *     'soapClient' => new \Zend\Soap\Client('https://api.example.com/path/mailmerge.asmx?WSDL'),
@@ -73,7 +73,7 @@ class MailMerge extends AbstractLiveDocx
      * 'password'. For example:
      *
      * {code}
-     * $mailMerge = new \Zend\Service\LiveDocx\MailMerge(array (
+     * $mailMerge = new \ZendService\LiveDocx\MailMerge(array (
      *     'username' => 'myUsername',
      *     'password' => 'myPassword',
      * ));
@@ -83,7 +83,7 @@ class MailMerge extends AbstractLiveDocx
      * constructor, you can also call the following methods:
      *
      * {code}
-     * $mailMerge = new \Zend\Service\LiveDocx\MailMerge();
+     * $mailMerge = new \ZendService\LiveDocx\MailMerge();
      *
      * $mailMerge->setUsername('myUsername')
      *           ->setPassword('myPassword');
@@ -92,7 +92,7 @@ class MailMerge extends AbstractLiveDocx
      * Or, if you want to specify your own SoapClient:
      *
      * {code}
-     * $mailMerge = new \Zend\Service\LiveDocx\MailMerge();
+     * $mailMerge = new \ZendService\LiveDocx\MailMerge();
      *
      * $mailMerge->setUsername('myUsername')
      *           ->setPassword('myPassword');

@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\LiveDocx;
+namespace ZendService\LiveDocx;
 
 use Traversable;
 use Zend\Soap\Client as SoapClient;

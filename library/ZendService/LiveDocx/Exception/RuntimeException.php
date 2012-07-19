@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\LiveDocx\Exception;
+namespace ZendService\LiveDocx\Exception;
 
 /**
  * @category   Zend
