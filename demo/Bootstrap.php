@@ -25,8 +25,8 @@ set_time_limit(0);
 include_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
 include_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
 
-use \ZendService\LiveDocx\DemoHelper as Helper;
-use \Locale;
+use ZendService\LiveDocx\DemoHelper as Helper;
+use Locale;
 
 
 /*
