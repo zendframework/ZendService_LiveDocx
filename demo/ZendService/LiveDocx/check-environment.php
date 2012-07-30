@@ -13,7 +13,7 @@ define('TEST_PASS',         'PASS');
 define('TEST_FAIL',         'FAIL');
 
 define('MIN_PHP_VERSION',   '5.3');
-define('MIN_ZF_VERSION',    '2.0.0dev1');
+define('MIN_ZF_VERSION',    '2.0.0rc1');
 
 define('GEOIP_SERVICE_URI', 'http://api.ipinfodb.com/v2/ip_query.php?key=332bde528d94fe578455e18ad225a01cba8dd359ee915ee46b70ca5e67137252');
 
