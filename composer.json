@@ -22,6 +22,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
+        "zendframework/zend-debug": ">=2.0.0beta5",
         "zendframework/zend-soap": ">=2.0.0beta5",
         "zendframework/zend-http": ">=2.0.0beta5",
         "zendframework/zend-uri": ">=2.0.0beta5",
