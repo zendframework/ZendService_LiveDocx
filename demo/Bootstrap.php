@@ -15,6 +15,11 @@
 error_reporting( E_ALL | E_STRICT );
 
 /**
+ * Turn off execution time limit
+ */
+set_time_limit(0);
+
+/**
  * Include demo configuration and demo helper
  */
 require_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';

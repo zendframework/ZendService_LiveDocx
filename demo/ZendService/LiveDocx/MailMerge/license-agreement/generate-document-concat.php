@@ -1,9 +1,5 @@
 <?php
 
-//@todo - fix logger
-
-set_time_limit(0);
-
 require_once realpath('../../../../Bootstrap.php');
 
 
@@ -34,10 +30,12 @@ require_once realpath('../../../../Bootstrap.php');
  *       location. The specified paths are correct for Debian 5.0.3.
  */
 
-use ZendService\LiveDocx\DemoHelper as Helper;
 use Zend\Log\Logger;
 use Zend\Log\Writer\Stream as Writer;
+use Zend\Stdlib\SplPriorityQueue;
+use ZendService\LiveDocx\DemoHelper as Helper;
 use ZendService\LiveDocx\MailMerge;
+
 
 define('EXEC_PDFTK',       '/usr/bin/pdftk');
 define('EXEC_GHOSTSCRIPT', '/usr/bin/gs');
@@ -73,10 +71,11 @@ $iterations = 3;
 
 // Logger to output status messages
 
+$writerQueue = new SplPriorityQueue();
+$writerQueue->insert(new Writer('php://stdout'), 1);
 
-$logger = new Logger(new Writer('php://stdout'));
-
-$GLOBALS['logger'] = $logger;
+$logger = new Logger();
+$logger->setWriters($writerQueue);
 
 // -----------------------------------------------------------------------------
 
@@ -135,7 +134,7 @@ $outputFilename = __DIR__ . DIRECTORY_SEPARATOR . 'document-concat.pdf';
 
 $logger->log(Logger::INFO, 'Concatenating temporary documents...');
 
-if (true === concatenatePdfFilenames($tempFilenames, $outputFilename, $processor)) {
+if (true === concatenatePdfFilenames($tempFilenames, $outputFilename, $processor, $logger)) {
     $logger->log(Logger::INFO, sprintf('...DONE. Saved output document as %s.', basename($outputFilename)));
 } else {
     $logger->log(Logger::ERR, sprintf('...ERROR.'));
@@ -145,7 +144,7 @@ if (true === concatenatePdfFilenames($tempFilenames, $outputFilename, $processor
 
 // Delete temporary directory
 
-$logger->log(sprintf('Deleting temporary directory %s.', $tempDirectory), Logger::INFO);
+$logger->log(Logger::INFO, sprintf('Deleting temporary directory %s.', $tempDirectory));
 
 if (is_dir($tempDirectory)) {
     recursiveRemoveDirectory($tempDirectory);
@@ -211,16 +210,12 @@ function recursiveRemoveDirectory($dir)
  * @param $processor
  * @return boolean
  */
-function concatenatePdfFilenames($inputFilenames, $outputFilename, $processor = EXEC_PDFTK)
+function concatenatePdfFilenames($inputFilenames, $outputFilename, $processor = EXEC_PDFTK, $logger)
 {
     $ret = false;
 
-    $registry = new Registry();
-
-    $logger = $GLOBALS['logger'];
-
     if (! (is_file(EXEC_PDFTK) || is_file(EXEC_GHOSTSCRIPT))) {
-        $logger->log('Either pdftk or ghostscript are required for this sample application.', Logger::CRIT);
+        $logger->log(Logger::CRIT, 'Either pdftk or ghostscript are required for this sample application.');
         exit();
     }
 
@@ -245,7 +240,7 @@ function concatenatePdfFilenames($inputFilenames, $outputFilename, $processor = 
         break;
 
         default:
-            $logger->log('Invalid concatenation processor - use PROCESSOR_PDFTK or PROCESSOR_GHOSTSCRIPT only.', Logger::CRIT);
+            $logger->log(Logger::CRIT, 'Invalid concatenation processor - use PROCESSOR_PDFTK or PROCESSOR_GHOSTSCRIPT only.');
             exit();
         break;
     }

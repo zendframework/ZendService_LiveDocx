@@ -1,13 +1,10 @@
 <?php
 
-set_time_limit(0);
-
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../../Bootstrap.php';
 
 use Zend\Version;
 use ZendService\LiveDocx\MailMerge;
 use ZendService\LiveDocx\DemoHelper as Helper;
-
 
 // -----------------------------------------------------------------------------
 
