@@ -1,1 +1,3 @@
 vendor/
+demos/ZendService/LiveDocx/DemoConfiguration.php
+composer.phar
