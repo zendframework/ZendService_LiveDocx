@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath('../../../../Bootstrap.php');
+include_once realpath('../../../../Bootstrap.php');
 
 
 use ZendService\LiveDocx\DemoHelper as Helper;

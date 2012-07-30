@@ -23,7 +23,7 @@ command in the root of this project:
 
 After that, you should be able to run tests.');
 } else {
-    include_once __DIR__ . '/../vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
 }
 
 
@@ -36,5 +36,5 @@ spl_autoload_register(function ($class) {
     if (!file_exists($filename)) {
         return false;
     }
-    return include_once $filename;
+    return require_once $filename;
 });

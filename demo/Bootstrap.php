@@ -22,8 +22,8 @@ set_time_limit(0);
 /**
  * Include demo configuration and demo helper
  */
-require_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
-require_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
+include_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
+include_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
 
 use \ZendService\LiveDocx\DemoHelper as Helper;
 use \Locale;
@@ -51,7 +51,7 @@ set_include_path(implode(PATH_SEPARATOR, $path));
 /**
  * Setup autoloading
  */
-include __DIR__ . '/_autoload.php';
+include_once __DIR__ . '/_autoload.php';
 
 /**
  * Set fallback locale

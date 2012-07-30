@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/common.php';
+include_once __DIR__ . '/common.php';
 
 
 use ZendService\LiveDocx\MailMerge;

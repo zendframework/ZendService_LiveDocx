@@ -4,7 +4,7 @@
  * Setup autoloading
  */
 if ($zf2Path = getenv('ZF2_PATH')) {
-    require_once $zf2Path . '/library/Zend/Loader/StandardAutoloader.php';
+    include_once $zf2Path . '/library/Zend/Loader/StandardAutoloader.php';
 
     $loader = new Zend\Loader\StandardAutoloader(array(
         Zend\Loader\StandardAutoloader::AUTOREGISTER_ZF => true,
