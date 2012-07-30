@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
 /**
@@ -18,7 +18,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
  * made available.
  */
 
-use Zend\Service\LiveDocx\MailMerge;
+use ZendService\LiveDocx\MailMerge;
 
 $mailMerge = new MailMerge();
 

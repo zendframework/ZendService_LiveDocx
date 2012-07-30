@@ -1,10 +1,10 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
-use Zend\Service\LiveDocx\Helper;
-use Zend\Service\LiveDocx\MailMerge;
+use ZendService\LiveDocx\DemoHelper as Helper;
+use ZendService\LiveDocx\MailMerge;
 
 Helper::printLine(
     PHP_EOL . 'Remotely Stored Images' .

@@ -17,8 +17,8 @@ error_reporting( E_ALL | E_STRICT );
 /**
  * Include demo configuration and demo helper
  */
-include_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
-include_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
+require_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
+require_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
 
 use \ZendService\LiveDocx\DemoHelper as Helper;
 use \Locale;

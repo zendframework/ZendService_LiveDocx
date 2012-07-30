@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
 $templateFilename     = 'maintemplate.docx';

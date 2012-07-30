@@ -1,10 +1,10 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
-use Zend\Service\LiveDocx\MailMerge;
-use Zend\Service\LiveDocx\Helper;
+use ZendService\LiveDocx\MailMerge;
+use ZendService\LiveDocx\DemoHelper as Helper;
 
 Helper::printLine(
     PHP_EOL . 'Document Access Options' .

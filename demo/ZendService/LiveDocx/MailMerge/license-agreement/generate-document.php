@@ -1,10 +1,10 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
-use Zend\Date\Date;
-use Zend\Service\LiveDocx\MailMerge;
+use ZendService\LiveDocx\MailMerge;
+use ZendService\LiveDocx\DemoHelper as Helper;
 
 $mailMerge = new MailMerge();
 
@@ -16,19 +16,19 @@ $mailMerge->setLocalTemplate('template.docx');
 $mailMerge->assign('software', 'Magic Graphical Compression Suite v1.9')
           ->assign('licensee', 'Henry Döner-Meyer')
           ->assign('company',  'Co-Operation')
-          ->assign('date',     Date::now()->toString(Date::DATE_LONG))
-          ->assign('time',     Date::now()->toString(Date::TIME_LONG))
+          ->assign('date',     Helper::currentDate())
+          ->assign('time',     Helper::currentTime())
           ->assign('city',     'Berlin')
           ->assign('country',  'Germany');
 
 /**
  * ALTERNATIVE: Concatenating PDF files locally - basic
- * 
+ *
  * You can also assign multiple sets of data. In this case, each set of data
  * will populate the template and the resulting document (one per set of data)
  * will be appended to the previous document. Thus, in this example, we create
  * two documents that are concatenated into one PDF file.
- * 
+ *
  * NOTE: In the case that you wish to generate several thousand documents that
  *       are concatenated into one PDF, please take a look at the sample
  *       application 'generate-document-pdftk.php' in this directory.
@@ -40,8 +40,8 @@ $fieldValues = array (
         'software' => 'Magic Graphical Compression Suite v2.5',
         'licensee' => 'Henry Döner-Meyer',
         'company'  => 'Megasoft Co-Operation',
-        'date'     => Date::now()->toString(Date::DATE_LONG),
-        'time'     => Date::now()->toString(Date::TIME_LONG),
+        'date'     => Helper::currentDate(),
+        'time'     => Helper::currentTime(),
         'city'     => 'Berlin',
         'country'  => 'Germany'
     ),
@@ -50,11 +50,11 @@ $fieldValues = array (
         'software' => 'Magic CAD Suite v1.9',
         'licensee' => 'Brüno Döner-Meyer',
         'company'  => 'Future Co-Operation',
-        'date'     => Date::now()->toString(Date::DATE_LONG),
-        'time'     => Date::now()->toString(Date::TIME_LONG),
+        'date'     => Helper::currentDate(),
+        'time'     => Helper::currentTime(),
         'city'     => 'Berlin',
         'country'  => 'Germany'
-    )    
+    )
 );
 
 $mailMerge->assign($fieldValues);

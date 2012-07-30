@@ -25,7 +25,8 @@
 
 namespace ZendService\LiveDocx;
 
-use Zend\Date\Date;
+use IntlDateFormatter;
+use Locale;
 
 /**
  * @category   Demos
@@ -145,14 +146,15 @@ class DemoHelper
     {
         $ret = '';
 
-        $date = new Date();
+        $locale = Locale::getDefault();
+
+        $intlDateFormatter = new IntlDateFormatter($locale,
+                IntlDateFormatter::LONG, IntlDateFormatter::LONG);
 
         if (count($result) > 0) {
             foreach ($result as $record) {
-                $date->set($record['createTime']);
-                $createTimeFormatted = $date->get(Date::RFC_1123);
-                $date->set($record['modifyTime']);
-                $modifyTimeFormatted = $date->get(Date::RFC_1123);
+                $createTimeFormatted = $intlDateFormatter->format($record['createTime']);
+                $modifyTimeFormatted = $intlDateFormatter->format($record['modifyTime']);
                 $ret .= sprintf('         Filename  : %s%s', $record['filename'], PHP_EOL);
                 $ret .= sprintf('         File Size : %d b%s', $record['fileSize'], PHP_EOL);
                 $ret .= sprintf('     Creation Time : %d (%s)%s', $record['createTime'], $createTimeFormatted, PHP_EOL);
@@ -160,8 +162,6 @@ class DemoHelper
                 $ret .= PHP_EOL;
             }
         }
-
-        unset($date);
 
         return $ret;
     }
@@ -225,4 +225,40 @@ class DemoHelper
 
         printf('%s%s%s%s', $counter, $testString, $testResult, PHP_EOL);
     }
+
+    /**
+     *
+     * @return string
+     */
+    public static function currentTime()
+    {
+        $locale    = Locale::getDefault();
+        $timestamp = time();
+
+        $intlTimeFormatter = new IntlDateFormatter($locale,
+                IntlDateFormatter::NONE, IntlDateFormatter::SHORT);
+
+        return $intlTimeFormatter->format($timestamp);
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public static function currentDate()
+    {
+        $locale    = Locale::getDefault();
+        $timestamp = time();
+
+        $intlDateFormatter = new IntlDateFormatter($locale,
+                IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+        return $intlDateFormatter->format($timestamp);
+    }
+
+    public static function currentMonthYear()
+    {
+        return 'July 2012'; //@todo - implement this
+    }
+
 }

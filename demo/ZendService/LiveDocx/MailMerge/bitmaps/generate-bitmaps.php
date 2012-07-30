@@ -1,10 +1,10 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Bootstrap.php';
+require_once realpath('../../../../Bootstrap.php');
 
 
-use Zend\Date\Date;
-use Zend\Service\LiveDocx\MailMerge;
+use ZendService\LiveDocx\DemoHelper as Helper;
+use ZendService\LiveDocx\MailMerge;
 
 $mailMerge = new MailMerge();
 
@@ -16,8 +16,8 @@ $mailMerge->setLocalTemplate('template.docx');
 $mailMerge->assign('software', 'Magic Graphical Compression Suite v1.9')
           ->assign('licensee', 'Daï Lemaitre')
           ->assign('company',  'Megasoft Co-operation')
-          ->assign('date',     Date::now()->toString(Date::DATE_LONG))
-          ->assign('time',     Date::now()->toString(Date::TIME_LONG))
+          ->assign('date',     Helper::currentDate())
+          ->assign('time',     Helper::currentTime())
           ->assign('city',     'Lyon')
           ->assign('country',  'France');
 

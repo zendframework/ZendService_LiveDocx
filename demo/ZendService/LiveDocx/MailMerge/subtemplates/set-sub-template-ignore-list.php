@@ -3,7 +3,7 @@
 require_once __DIR__ . '/common.php';
 
 
-use Zend\Service\LiveDocx\MailMerge;
+use ZendService\LiveDocx\MailMerge;
 
 // -----------------------------------------------------------------------------
 
