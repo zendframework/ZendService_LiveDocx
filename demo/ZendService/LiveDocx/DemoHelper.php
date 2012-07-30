@@ -258,7 +258,12 @@ class DemoHelper
 
     public static function currentMonthYear()
     {
-        return 'July 2012'; //@todo - implement this
+        $locale    = Locale::getDefault();
+        $timestamp = time();
+
+        $intlDateFormatter = new IntlDateFormatter($locale, null, null, null, null, 'LLLL yyyy');
+
+        return $intlDateFormatter->format($timestamp);
     }
 
 }
