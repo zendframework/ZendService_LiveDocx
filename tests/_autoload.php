@@ -3,7 +3,7 @@
  * Setup autoloading
  */
 if ($zf2Path = getenv('ZF2_PATH')) {
-    require_once $zf2Path . '/library/Zend/Loader/StandardAutoloader.php';
+    include_once $zf2Path . '/library/Zend/Loader/StandardAutoloader.php';
 
     $loader = new Zend\Loader\StandardAutoloader(array(
         Zend\Loader\StandardAutoloader::AUTOREGISTER_ZF => true,
@@ -23,7 +23,7 @@ command in the root of this project:
 
 After that, you should be able to run tests.');
 } else {
-    require_once __DIR__ . '/../vendor/autoload.php';
+    include_once __DIR__ . '/../vendor/autoload.php';
 }
 
 
@@ -36,5 +36,5 @@ spl_autoload_register(function ($class) {
     if (!file_exists($filename)) {
         return false;
     }
-    return require_once $filename;
+    return include_once $filename;
 });
