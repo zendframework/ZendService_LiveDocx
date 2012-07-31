@@ -474,7 +474,7 @@ class MailMergeTest extends TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_1, self::TEST_INCLUDE_SUBTEMPLATE_2));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(56858, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(56889, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }
@@ -487,7 +487,7 @@ class MailMergeTest extends TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_1));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(58500, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(56889, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }
@@ -500,7 +500,7 @@ class MailMergeTest extends TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_2));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(58406, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(58437, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }

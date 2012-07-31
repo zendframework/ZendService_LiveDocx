@@ -340,12 +340,10 @@ abstract class AbstractLiveDocx
             }
 
             try {
-                //ErrorHandler::start(E_WARNING);       // @todo - figure out why ErrorHandler::start(E_WARNING)
-                $this->getSoapClient()->LogIn(array(    // is called twice in unittests...
+                @$this->getSoapClient()->LogIn(array(
                     'username' => $this->getUsername(),
                     'password' => $this->getPassword(),
                 ));
-                //ErrorHandler::stop();
                 $this->setIsLoggedIn(true);
             } catch (\Exception $e) {
                 throw new Exception\RuntimeException(
