@@ -22,8 +22,8 @@ set_time_limit(0);
 /**
  * Include demo configuration and demo helper
  */
-include_once __DIR__ . '/ZendService/LiveDocx/DemoConfiguration.php';
-include_once __DIR__ . '/ZendService/LiveDocx/DemoHelper.php';
+include_once __DIR__ . '/DemoConfiguration.php';
+include_once __DIR__ . '/DemoHelper.php';
 
 use ZendService\LiveDocx\DemoHelper as Helper;
 use \Locale;
