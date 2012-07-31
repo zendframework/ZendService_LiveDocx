@@ -227,6 +227,8 @@ class DemoHelper
     }
 
     /**
+     * Return the current time, formatted by default locale
+     * e.g. 9:05 AM
      *
      * @return string
      */
@@ -242,6 +244,8 @@ class DemoHelper
     }
 
     /**
+     * Return the current date, formatted by default locale
+     * e.g. July 31, 2012
      *
      * @return string
      */
@@ -256,6 +260,12 @@ class DemoHelper
         return $intlDateFormatter->format($timestamp);
     }
 
+    /**
+     * Return the current month and year, formatted by default locale
+     * e.g. July 2012
+     *
+     * @return string
+     */
     public static function currentMonthYear()
     {
         $locale    = Locale::getDefault();
