@@ -20,7 +20,7 @@ if (!isset($php[0])) {
 
 $php = $php[0];
 
-$path = __DIR__ . DIRECTORY_SEPARATOR . 'MailMerge';
+$path = realpath('./ZendService/LiveDocx/MailMerge');
 
 $it = new \RecursiveDirectoryIterator($path);
 foreach (new \RecursiveIteratorIterator($it) as $file) {

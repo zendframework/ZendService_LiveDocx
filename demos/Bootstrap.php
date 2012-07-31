@@ -28,7 +28,6 @@ include_once __DIR__ . '/DemoHelper.php';
 use ZendService\LiveDocx\DemoHelper as Helper;
 use \Locale;
 
-
 /*
  * Determine the root, library, and tests directories of the framework
  * distribution.
