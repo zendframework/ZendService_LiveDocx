@@ -22,23 +22,22 @@ set_time_limit(0);
 /**
  * Include demo configuration and demo helper
  */
-include_once __DIR__ . '/DemoConfiguration.php';
 include_once __DIR__ . '/DemoHelper.php';
 
 use ZendService\LiveDocx\DemoHelper as Helper;
 use \Locale;
 
 /*
- * Determine the root, library, and tests directories of the framework
+ * Determine the root, library, and demos directories of the framework
  * distribution.
  */
 $zfRoot        = realpath(dirname(__DIR__));
 $zfCoreLibrary = "$zfRoot/library";
 
 /*
- * Prepend the Zend Framework library/ and tests/ directories to the
- * include_path. This allows the tests to run out of the box and helps prevent
- * loading other copies of the framework code and tests that would supersede
+ * Prepend the Zend Framework library/ and demos/ directories to the
+ * include_path. This allows the demos to run out of the box and helps prevent
+ * loading other copies of the framework code and demos that would supersede
  * this copy.
  */
 $path = array(

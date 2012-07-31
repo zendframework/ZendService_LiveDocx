@@ -126,7 +126,7 @@ class DemoHelper
         $ret .= sprintf('3. Copy %s.dist to %s.%s',                                           $file, $file, PHP_EOL);
         $ret .=                                                                               PHP_EOL;
         $ret .= sprintf('4. Open %s in a text editor and enter the username%s',               $file, PHP_EOL);
-        $ret .= sprintf('   and password you obtained in step 1 (lines 43 and 44).%s',        PHP_EOL);
+        $ret .= sprintf('   and password you obtained in step 1 (lines 42 and 43).%s',        PHP_EOL);
         $ret .=                                                                               PHP_EOL;
         $ret .= sprintf('5. Save and close %s.%s',                                            $file, PHP_EOL);
         $ret .=                                                                               PHP_EOL;
