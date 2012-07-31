@@ -23,7 +23,7 @@ class MailMerge extends AbstractLiveDocx
      * URI of LiveDocx.MailMerge WSDL.
      * @since LiveDocx 1.0
      */
-    const WSDL = 'https://api.livedocx.com/2.0/mailmerge.asmx?WSDL';
+    const WSDL = 'https://api.livedocx.com/2.1/mailmerge.asmx?WSDL';
 
 
     /**

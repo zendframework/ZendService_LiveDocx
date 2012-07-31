@@ -11,7 +11,7 @@
 namespace ZendServiceTest\LiveDocx;
 
 use ZendService\LiveDocx\MailMerge;
-use Zend\Soap\Client as SoapClient;
+use Zend\Soap\Client           as SoapClient;
 use PHPUnit_Framework_TestCase as TestCase;
 
 
@@ -51,7 +51,7 @@ class MailMergeTest extends TestCase
                     1 = implemented
                     0 = not implemented
 
-                Date: June 10, 2011
+                Last updated on July 31, 2011
             */
 
             /* +---------+---------+---------------------------------------------------------------------------------------------------------------------------+ */
@@ -453,7 +453,7 @@ class MailMergeTest extends TestCase
 
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(44273, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(44274, strlen($this->mailMerge->retrieveDocument('pdf')));
     }
 
     public function testSetIgnoreSubTemplates()
@@ -654,11 +654,11 @@ class MailMergeTest extends TestCase
         );
 
         $expectedResults = array(
-            'bmp'  => 'a1934f2153172f021847af7ece9049ce',
-            'gif'  => 'd7281d7b6352ff897917e25d6b92746f',
-            'jpg'  => 'e0b20ea2c9a6252886f689f227109085',
-            'png'  => 'c449f0c2726f869e9a42156e366f1bf9',
-            'tiff' => '20a96a94762a531e9879db0aa6bd673f',
+            'bmp'  => '60ec05924cb2cd162d787953c8f3a110',
+            'gif'  => '4d979d71c7e666d6bc46fa446c60b037',
+            'jpg'  => '66611a32a0d4e3a39a77fcd69259b166',
+            'png'  => '289ac53c67418b855a56515789f9c147',
+            'tiff' => '92f443a5dd482f6f20f65ce187dee6fd',
         );
 
         $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1);
@@ -683,11 +683,11 @@ class MailMergeTest extends TestCase
         );
 
         $expectedResults = array(
-            'bmp'  => 'e8a884ee61c394deec8520fb397d1cf1',
-            'gif'  => '2255fee47b4af8438b109efc3cb0d304',
-            'jpg'  => 'e1acfc3001fc62567de2a489eccdb552',
-            'png'  => '15eac34d08e602cde042862b467fa865',
-            'tiff' => '98bad79380a80c9cc43dfffc5158d0f9',
+            'bmp'  => '392bce00e074ba0358ac6f2a39427fd4',
+            'gif'  => 'cf037e2947132e728a959ac147acfc43',
+            'jpg'  => 'ea852bbf30933ecf9806f6b436afe4ec',
+            'png'  => '8bd6f4d5d9b49effce583b561fd89bd8',
+            'tiff' => '78f96985bd56bb1941b6119c57546be1',
         );
 
         $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1);
