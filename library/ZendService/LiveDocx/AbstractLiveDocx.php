@@ -26,7 +26,7 @@ abstract class AbstractLiveDocx
      * LiveDocx service version.
      * @since LiveDocx 1.0
      */
-    const VERSION = '2.0';
+    const VERSION = '2.1';
 
 
     /**
