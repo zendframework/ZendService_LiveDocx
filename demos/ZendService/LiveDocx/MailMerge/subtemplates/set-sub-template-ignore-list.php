@@ -1,27 +1,36 @@
 <?php
 
-include_once __DIR__ . '/common.php';
+include_once realpath('./common.php');
+
+
+/**
+ * The following variables are defined in the included 'common.php' file:
+ *
+ * (string) $templateFilename       Main template file (one that includes subtemplates).
+ * (string) $subTemplate1Filename   Subtemplate 1      (one that is included in main template).
+ * (string) $subTemplate2Filename   Subtemplate 2      (one that is included in main template).
+ *
+ * (array)  $templateFilesnames     An array containing the above.
+ */
 
 
 use ZendService\LiveDocx\MailMerge;
 
-// -----------------------------------------------------------------------------
-
 $mailMerge = new MailMerge();
 
-$mailMerge->setWsdl(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
+$mailMerge->setWsdl    (DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
           ->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
           ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD);
 
 // -----------------------------------------------------------------------------
 
-foreach ($templateFilesnames as $_templateFilesname) {
+foreach ($templateFilesnames as $filename) {
 
-    if ($mailMerge->templateExists($_templateFilesname)) {
-        $mailMerge->deleteTemplate($_templateFilesname);
+    if ($mailMerge->templateExists($filename)) {
+        $mailMerge->deleteTemplate($filename);
     }
 
-    $mailMerge->uploadTemplate($_templateFilesname);
+    $mailMerge->uploadTemplate($filename);
 }
 
 // -----------------------------------------------------------------------------
@@ -34,7 +43,7 @@ $mailMerge->createDocument();
 
 $document = $mailMerge->retrieveDocument('pdf');
 
-file_put_contents('document1.pdf', $document);
+file_put_contents('document-ignore-list-1.pdf', $document);
 
 // -----------------------------------------------------------------------------
 
@@ -46,7 +55,7 @@ $mailMerge->createDocument();
 
 $document = $mailMerge->retrieveDocument('pdf');
 
-file_put_contents('document2.pdf', $document);
+file_put_contents('document-ignore-list-2.pdf', $document);
 
 // -----------------------------------------------------------------------------
 
@@ -58,7 +67,7 @@ $mailMerge->createDocument();
 
 $document = $mailMerge->retrieveDocument('pdf');
 
-file_put_contents('document3.pdf', $document);
+file_put_contents('document-ignore-list-3.pdf', $document);
 
 // -----------------------------------------------------------------------------
 

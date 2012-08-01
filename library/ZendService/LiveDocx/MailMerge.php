@@ -751,7 +751,7 @@ class MailMerge extends AbstractLiveDocx
      * @param  array filenames
      * @throws Exception\RuntimeException
      * @return MailMerge
-     * @since  LiveDocx 1.2
+     * @since  LiveDocx 1.2 Premium
      */
     public function setSubTemplateIgnoreList($filenames)
     {
