@@ -7,16 +7,16 @@ use ZendService\LiveDocx\DemoHelper as Helper;
 use ZendService\LiveDocx\MailMerge;
 
 Helper::printLine(
-    PHP_EOL . 'Using Hosted Solution and Fully-Licensed Servers' .
+    PHP_EOL . 'Using LiveDocx Premium Service' .
     PHP_EOL .
-    PHP_EOL . 'This sample application illustrates how to use the Zend Framework LiveDocx component with hosted and fully-licensed LiveDocx servers, by specifying the server\'s WSDL.' .
+    PHP_EOL . 'This sample application illustrates how to use the Zend Framework LiveDocx component with the LiveDocx premium service.' .
     PHP_EOL .
     PHP_EOL
 );
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setWsdl(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
+$mailMerge->setWsdl    (DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
           ->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
           ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD);
 
