@@ -273,7 +273,8 @@ class MailMergeTest extends TestCase
         $this->setExpectedException('ZendService\LiveDocx\Exception\InvalidArgumentException');
 
         $mailMerge = new MailMerge();
-        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME);
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                  ->setService (MailMerge::SERVICE_FREE);
         $mailMerge->listTemplates();
         unset($mailMerge);
     }
@@ -284,7 +285,8 @@ class MailMergeTest extends TestCase
 
         $mailMerge = new MailMerge();
         $mailMerge->setUsername('invalid-username')
-                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD);
+                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+                  ->setService (MailMerge::SERVICE_FREE);
         $mailMerge->listTemplates();
         unset($mailMerge);
     }
@@ -1160,7 +1162,7 @@ class MailMergeTest extends TestCase
         $this->mailMerge = new MailMerge();
         $this->mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
                         ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
-                        ->setService (MailMerge::SERVICE_FREE);;
+                        ->setService (MailMerge::SERVICE_FREE);
 
         foreach ($this->mailMerge->listTemplates() as $template) {
             $this->mailMerge->deleteTemplate($template['filename']);
