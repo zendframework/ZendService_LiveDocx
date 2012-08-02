@@ -8,21 +8,9 @@ use ZendService\LiveDocx\MailMerge;
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-          ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
-
-/*
- * ALTERNATIVE: Specify username and password in constructor
- */
-
-/*
-$mailMerge = new MailMerge(
-    array (
-        'username' => DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME,
-        'password' => DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD
-    )
-);
-*/
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+          ->setService (MailMerge::SERVICE_FREE);
 
 $mailMerge->setLocalTemplate('template.doc');
 

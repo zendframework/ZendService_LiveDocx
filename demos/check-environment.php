@@ -203,9 +203,15 @@ if (false != $results) {
 
 // -----------------------------------------------------------------------------
 
+$mailMerge = new MailMerge();
+
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+          ->setService (MailMerge::SERVICE_FREE);
+
 $microtime = microtime(true);
 
-$results = @file_get_contents(MailMerge::WSDL);
+$results = @file_get_contents($mailMerge->getWsdl());
 
 if (false != $results) {
     $duration = microtime(true) - $microtime;
@@ -222,8 +228,8 @@ $counter++;
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME') &&
-        defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD')) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') &&
+        defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD')) {
     $result = TEST_PASS;
 } else {
     $result = TEST_FAIL;
@@ -242,8 +248,9 @@ try {
     $microtime = microtime(true);
 
     $mailMerge = new MailMerge();
-    $mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-              ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD)
+    $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+              ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+              ->setService (MailMerge::SERVICE_FREE)
               ->listTemplates();
     $duration = microtime(true) - $microtime;
     unset($mailMerge);
@@ -265,12 +272,12 @@ $counter++;
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL') &&
-        false !== DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL) {
 
     $microtime = microtime(true);
 
-    $results = @file_get_contents(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL);
+    $results = @file_get_contents(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL);
 
     if (false != $results) {
         $duration = microtime(true) - $microtime;
@@ -288,21 +295,19 @@ if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL') &&
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
-        defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD') &&
-        defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL')     &&
-        false !== DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME  &&
-        false !== DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD  &&
-        false !== DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
+        defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME  &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD) {
 
     $errorMessage = null;
 
     try {
         $microtime = microtime(true);
         $mailMerge = new MailMerge();
-        $mailMerge->setWsdl(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
-                  ->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
-                  ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+        $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
+                  ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+                  ->setService (MailMerge::SERVICE_PREMIUM)
                   ->listTemplates();
         $duration = microtime(true) - $microtime;
         unset($mailMerge);

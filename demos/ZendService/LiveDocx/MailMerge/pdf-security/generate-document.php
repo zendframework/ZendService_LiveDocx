@@ -8,12 +8,9 @@ use ZendService\LiveDocx\MailMerge;
 
 $mailMerge = new MailMerge();
 
-// Set WSDL of your *premium* service server
-$mailMerge->setWsdl(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL);
-
-// Set username and password of your *premium* service server
-$mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
-          ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD);
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+          ->setService (MailMerge::SERVICE_PREMIUM);
 
 $mailMerge->setLocalTemplate('template.docx');
 

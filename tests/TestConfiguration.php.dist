@@ -41,25 +41,25 @@ defined('TESTS_ZEND_OB_ENABLED') || define('TESTS_ZEND_OB_ENABLED', false);
 /**
  * PHPUnit Code Coverage / Test Report
  */
-defined('TESTS_GENERATE_REPORT') || define('TESTS_GENERATE_REPORT', false);
+defined('TESTS_GENERATE_REPORT')        || define('TESTS_GENERATE_REPORT', false);
 defined('TESTS_GENERATE_REPORT_TARGET') || define('TESTS_GENERATE_REPORT_TARGET', '/path/to/target');
 
 /**
  * Zend\Service\LiveDocx configuration
  *
- * Define username and password in order to run unit tests for LiveDocx web services.
+ * Define username and password in order to run unit tests for LiveDocx free service.
  *
  * phpunit/phpunit will typically work.
  */
-defined('TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME') || define('TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME', false);
-defined('TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD') || define('TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD', false);
+defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
+defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
 
 /**
  * Zend\Service\LiveDocx premium configuration
  *
- * Define username, password, WSDL in order to run unit tests for premium LiveDocx web services.
+ * Define username and password in order to run unit tests for LiveDocx premium service.
  */
-defined('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME') || define('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
-defined('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD') || define('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);
-defined('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL') || define('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL', false);
+defined('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME') || define('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
+defined('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') || define('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);
+defined('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL')     || define('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL'    , false);
 

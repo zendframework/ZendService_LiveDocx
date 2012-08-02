@@ -14,8 +14,9 @@ Helper::printLine(
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-          ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+          ->setService (MailMerge::SERVICE_FREE);
 
 print('Checking whether an image is available... ');
 if (true === $mailMerge->imageExists('image-01.png')) {

@@ -78,8 +78,8 @@ class DemoHelper
 
     /**
      * Return true, if configuration file exists and constants
-     * DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME and
-     * DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD have been set.
+     * DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME and
+     * DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD have been set.
      *
      * @return boolean
      */
@@ -90,10 +90,10 @@ class DemoHelper
         $filename = self::configurationFilename();
         if (is_file($filename) && is_readable($filename)) {
             include_once $filename;
-            if (defined('DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME') &&
-                defined('DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD') &&
-                false !== DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME  &&
-                false !== DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD ) {
+            if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') &&
+                defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD') &&
+                false !== DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME  &&
+                false !== DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD ) {
                     $ret = true;
                 }
         }

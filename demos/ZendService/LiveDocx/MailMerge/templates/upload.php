@@ -14,8 +14,9 @@ Helper::printLine(
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-          ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+          ->setService (MailMerge::SERVICE_FREE);
 
 print('Uploading template... ');
 $mailMerge->uploadTemplate('template-1.docx');

@@ -32,22 +32,22 @@
 /**
  * LiveDocx configuration
  *
- * Define username and password in order to access LiveDocx web services.
+ * Define username and password in order to access LiveDocx free service.
  *
  * Get a username and password here:
  *
  * https://www.livedocx.com/user/account_registration.aspx
  *
  */
-define('DEMOS_ZEND_SERVICE_LIVEDOCX_USERNAME', false);
-define('DEMOS_ZEND_SERVICE_LIVEDOCX_PASSWORD', false);
+define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
+define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
 
 /**
  * [PREMIUM] LiveDocx configuration
  *
- * Define username and password in order to access LiveDocx premium web services.
+ * Define username and password in order to access LiveDocx premium service.
  *
  */
-define('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL',     false);
-define('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
-define('DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);
+define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL',     false);
+define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
+define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);

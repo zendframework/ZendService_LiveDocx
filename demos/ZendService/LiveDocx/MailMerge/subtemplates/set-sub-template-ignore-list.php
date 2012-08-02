@@ -18,9 +18,9 @@ use ZendService\LiveDocx\MailMerge;
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setWsdl    (DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL)
-          ->setUsername(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
-          ->setPassword(DEMOS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD);
+$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
+          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+          ->setService (MailMerge::SERVICE_PREMIUM);
 
 // -----------------------------------------------------------------------------
 
