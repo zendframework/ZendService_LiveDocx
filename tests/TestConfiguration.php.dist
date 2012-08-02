@@ -48,8 +48,6 @@ defined('TESTS_GENERATE_REPORT_TARGET') || define('TESTS_GENERATE_REPORT_TARGET'
  * LiveDocx Free Service configuration
  *
  * Define username and password in order to run unit tests for LiveDocx free service.
- *
- * phpunit/phpunit will typically work.
  */
 defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
 defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);

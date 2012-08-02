@@ -37,7 +37,6 @@
  * Get a username and password here:
  *
  * https://www.livedocx.com/user/account_registration.aspx
- *
  */
 define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
 define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
@@ -46,7 +45,6 @@ define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
  * LiveDocx Premium Service configuration
  *
  * Define username and password in order to access LiveDocx premium service.
- *
  */
 define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
 define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);
