@@ -226,6 +226,8 @@ Helper::printLineToc($counter, sprintf('Checking backend WSDL (%01.2fs)', $durat
 
 $counter++;
 
+unset($mailMerge);
+
 // -----------------------------------------------------------------------------
 
 if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') &&
@@ -272,12 +274,20 @@ $counter++;
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL') &&
-        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
+        defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME  &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD) {
+
+    $mailMerge = new MailMerge();
+
+    $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
+              ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+              ->setService (MailMerge::SERVICE_PREMIUM);
 
     $microtime = microtime(true);
 
-    $results = @file_get_contents(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL);
+    $results = @file_get_contents($mailMerge->getWsdl());
 
     if (false != $results) {
         $duration = microtime(true) - $microtime;
@@ -291,6 +301,9 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL') &&
     Helper::printLineToc($counter, sprintf('[PREMIUM] Checking backend WSDL (%01.2fs)', $duration), $result);
 
     $counter++;
+
+    unset($mailMerge);
+
 }
 
 // -----------------------------------------------------------------------------

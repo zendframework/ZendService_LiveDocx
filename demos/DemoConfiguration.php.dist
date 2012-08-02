@@ -30,7 +30,7 @@
  */
 
 /**
- * LiveDocx configuration
+ * LiveDocx Free Service configuration
  *
  * Define username and password in order to access LiveDocx free service.
  *
@@ -43,11 +43,10 @@ define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
 define('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
 
 /**
- * [PREMIUM] LiveDocx configuration
+ * LiveDocx Premium Service configuration
  *
  * Define username and password in order to access LiveDocx premium service.
  *
  */
-define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_WSDL',     false);
 define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
 define('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);
