@@ -205,9 +205,7 @@ if (false != $results) {
 
 $mailMerge = new MailMerge();
 
-$mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
-          ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
-          ->setService (MailMerge::SERVICE_FREE);
+$mailMerge->setService(MailMerge::SERVICE_FREE);
 
 $microtime = microtime(true);
 
@@ -230,8 +228,10 @@ unset($mailMerge);
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') &&
-        defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD')) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME')     &&
+        defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME  &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD) {
     $result = TEST_PASS;
 } else {
     $result = TEST_FAIL;
@@ -274,15 +274,12 @@ $counter++;
 
 // -----------------------------------------------------------------------------
 
-if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
-        defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') &&
-        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME  &&
-        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD) {
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME) {
 
     $mailMerge = new MailMerge();
 
     $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
-              ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
               ->setService (MailMerge::SERVICE_PREMIUM);
 
     $microtime = microtime(true);
@@ -305,6 +302,22 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
     unset($mailMerge);
 
 }
+
+// -----------------------------------------------------------------------------
+
+if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
+        defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME  &&
+        false !== DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD) {
+    $result = TEST_PASS;
+} else {
+    $result = TEST_FAIL;
+    $failed = true;
+}
+
+Helper::printLineToc($counter, 'Checking LiveDocx Premium Service credentials are defined', $result);
+
+$counter++;
 
 // -----------------------------------------------------------------------------
 
