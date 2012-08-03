@@ -22,14 +22,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-config": "=2.0.0beta5",
-        "zendframework/zend-servicemanager": "=2.0.0beta5",
-        "zendframework/zend-log": "=2.0.0beta5",
-        "zendframework/zend-debug": "=2.0.0beta5",
-        "zendframework/zend-soap": "=2.0.0beta5",
-        "zendframework/zend-http": "=2.0.0beta5",
-        "zendframework/zend-uri": "=2.0.0beta5",
-        "zendframework/zend-version": "=2.0.0beta5"
+        "zendframework/zendframework": "=2.0.0rc2"
     },
     "extra": {
         "branch-alias": {
