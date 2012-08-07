@@ -2,3 +2,4 @@ vendor/
 demos/DemoConfiguration.php
 demos/ZendService/LiveDocx/MailMerge/stress
 composer.phar
+composer.lock
