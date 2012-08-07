@@ -16,7 +16,7 @@ $mailMerge = new MailMerge();
 
 $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
           ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
-          ->setService (MailMerge::SERVICE_FREE);
+          ->setService (MailMerge::SERVICE_FREE);  // for premium service, use MailMerge::SERVICE_PREMIUM
 
 $counter = 1;
 foreach ($mailMerge->listImages() as $result) {

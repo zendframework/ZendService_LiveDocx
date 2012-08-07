@@ -14,6 +14,10 @@ Helper::printLine(
     PHP_EOL
 );
 
+// -----------------------------------------------------------------------------
+
+// Pass login credentials using set methods
+
 $mailMerge = new MailMerge();
 
 $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
@@ -33,3 +37,28 @@ printf('Username : %s%sPassword : %s%s    WSDL : %s%s%s',
 );
 
 unset($mailMerge);
+
+// -----------------------------------------------------------------------------
+
+// Pass login credentials using constructor
+
+$mailMerge = new MailMerge(array(
+    'username' => DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME,
+    'password' => DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD,
+     'service' => MailMerge::SERVICE_PREMIUM));
+
+$mailMerge->getTemplateFormats(); // then call methods as usual
+
+printf('Username : %s%sPassword : %s%s    WSDL : %s%s%s',
+    $mailMerge->getUsername(),
+    PHP_EOL,
+    $mailMerge->getPassword(),
+    PHP_EOL,
+    $mailMerge->getWsdl(),
+    PHP_EOL,
+    PHP_EOL
+);
+
+unset($mailMerge);
+
+// -----------------------------------------------------------------------------
