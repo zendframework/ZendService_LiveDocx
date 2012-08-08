@@ -51,7 +51,7 @@ class MailMergeTest extends TestCase
                     1 = implemented
                     0 = not implemented
 
-                Last updated on July 31, 2011
+                Last updated on August 08, 2012
             */
 
             /* +---------+---------+---------------------------------------------------------------------------------------------------------------------------+ */
