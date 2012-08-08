@@ -13,7 +13,6 @@ namespace ZendService\LiveDocx;
 use Traversable;
 use Zend\Soap\Client as SoapClient;
 use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\ErrorHandler;
 
 /**
  * @category   Zend
@@ -26,7 +25,19 @@ abstract class AbstractLiveDocx
      * LiveDocx service version.
      * @since LiveDocx 1.0
      */
-    const VERSION = '2.0';
+    const VERSION = '2.1';
+
+    /**
+     *
+     * @since LiveDocx 2.1
+     */
+    const SERVICE_FREE = 'free';
+
+    /**
+     *
+     * @since LiveDocx 2.1
+     */
+    const SERVICE_PREMIUM = 'premium';
 
 
     /**
@@ -58,6 +69,13 @@ abstract class AbstractLiveDocx
      * @since LiveDocx 1.2
      */
     protected $isLoggedIn = null;
+
+    /**
+     * Free or premium service.
+     * @var   string
+     * @since LiveDocx 2.1
+     */
+    protected $service = null;
 
 
     /**
@@ -238,6 +256,44 @@ abstract class AbstractLiveDocx
     }
 
     /**
+     * Set service.
+     *
+     * @return AbstractLiveDocx
+     * @since  LiveDocx 2.1
+     */
+    public function setService($service)
+    {
+        if (!in_array($service, array(self::SERVICE_FREE, self::SERVICE_PREMIUM))) {
+            throw new Exception\RuntimeException(
+                'Service must be either self::SERVICE_FREE or self::SERVICE_PREMIUM.'
+            );
+        }
+
+        $this->service = $service;
+
+        $wsdl = $this->buildWsdl($this->getService(), $this->getUsername(), $this->getVersion());
+
+        $this->setWsdl($wsdl);
+
+        return $this;
+    }
+
+    /**
+     * Return service.
+     *
+     * @return string|null
+     * @since  LiveDocx 2.1
+     */
+    public function getService()
+    {
+        if (isset($this->service)) {
+            return $this->service;
+        }
+
+        return null;
+    }
+
+    /**
      * Return the document format (extension) of a filename.
      *
      * @param  string $filename
@@ -340,12 +396,10 @@ abstract class AbstractLiveDocx
             }
 
             try {
-                ErrorHandler::start(E_WARNING);
-                $this->getSoapClient()->LogIn(array(
+                @$this->getSoapClient()->LogIn(array(
                     'username' => $this->getUsername(),
                     'password' => $this->getPassword(),
                 ));
-                ErrorHandler::stop();
                 $this->setIsLoggedIn(true);
             } catch (\Exception $e) {
                 throw new Exception\RuntimeException(
