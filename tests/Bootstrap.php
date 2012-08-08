@@ -44,16 +44,16 @@ set_include_path(implode(PATH_SEPARATOR, $path));
 /**
  * Setup autoloading
  */
-include __DIR__ . '/_autoload.php';
+include_once __DIR__ . '/_autoload.php';
 
 /*
  * Load the user-defined test configuration file, if it exists; otherwise, load
  * the default configuration.
  */
 if (is_readable($zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php')) {
-    require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
+    include_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php';
 } else {
-    require_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php.dist';
+    include_once $zfCoreTests . DIRECTORY_SEPARATOR . 'TestConfiguration.php.dist';
 }
 
 if (defined('TESTS_GENERATE_REPORT') && TESTS_GENERATE_REPORT === true) {
