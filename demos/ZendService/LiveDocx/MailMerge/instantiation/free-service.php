@@ -7,9 +7,9 @@ use ZendService\LiveDocx\DemoHelper as Helper;
 use ZendService\LiveDocx\MailMerge;
 
 Helper::printLine(
-    PHP_EOL . 'Using LiveDocx Free Service' .
+    PHP_EOL . 'Using LiveDocx Free' .
     PHP_EOL .
-    PHP_EOL . 'This sample application illustrates how to use the Zend Framework LiveDocx component with the LiveDocx free service.' .
+    PHP_EOL . 'This sample application illustrates how to use the Zend Framework LiveDocx component with the LiveDocx Free.' .
     PHP_EOL .
     PHP_EOL
 );

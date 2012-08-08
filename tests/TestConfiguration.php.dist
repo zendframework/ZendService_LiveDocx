@@ -45,17 +45,17 @@ defined('TESTS_GENERATE_REPORT')        || define('TESTS_GENERATE_REPORT', false
 defined('TESTS_GENERATE_REPORT_TARGET') || define('TESTS_GENERATE_REPORT_TARGET', '/path/to/target');
 
 /**
- * LiveDocx Free Service configuration
+ * LiveDocx Free configuration
  *
- * Define username and password in order to run unit tests for LiveDocx free service.
+ * Define username and password in order to run unit tests for LiveDocx Free.
  */
 defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME', false);
 defined('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD') || define('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD', false);
 
 /**
- * LiveDocx Premium Service configuration
+ * LiveDocx Premium configuration
  *
- * Define username and password in order to run unit tests for LiveDocx premium service.
+ * Define username and password in order to run unit tests for LiveDocx Premium.
  */
 defined('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME') || define('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME', false);
 defined('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD') || define('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD', false);

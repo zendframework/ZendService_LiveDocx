@@ -220,7 +220,7 @@ if (false != $results) {
     $failed = true;
 }
 
-Helper::printLineToc($counter, sprintf('Checking LiveDocx Free Service WSDL (%01.2fs)', $duration), $result);
+Helper::printLineToc($counter, sprintf('Checking LiveDocx Free WSDL (%01.2fs)', $duration), $result);
 
 $counter++;
 
@@ -238,7 +238,7 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME')     &&
     $failed = true;
 }
 
-Helper::printLineToc($counter, 'Checking LiveDocx Free Service credentials are defined', $result);
+Helper::printLineToc($counter, 'Checking LiveDocx Free credentials are defined', $result);
 
 $counter++;
 
@@ -268,7 +268,7 @@ if (is_null($errorMessage)) {
     $failed = true;
 }
 
-Helper::printLineToc($counter, sprintf('Logging into LiveDocx Free Service (%01.2fs)', $duration), $result);
+Helper::printLineToc($counter, sprintf('Logging into LiveDocx Free (%01.2fs)', $duration), $result);
 
 $counter++;
 
@@ -295,7 +295,7 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME') &&
         $failed   = true;
     }
 
-    Helper::printLineToc($counter, sprintf('Checking LiveDocx Premium Service WSDL (%01.2fs)', $duration), $result);
+    Helper::printLineToc($counter, sprintf('Checking LiveDocx Premium WSDL (%01.2fs)', $duration), $result);
 
     $counter++;
 
@@ -315,7 +315,7 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
     $failed = true;
 }
 
-Helper::printLineToc($counter, 'Checking LiveDocx Premium Service credentials are defined', $result);
+Helper::printLineToc($counter, 'Checking LiveDocx Premium credentials are defined', $result);
 
 $counter++;
 
@@ -349,7 +349,7 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
         $failed = true;
     }
 
-    Helper::printLineToc($counter, sprintf('Logging into LiveDocx Premium Service (%01.2fs)', $duration), $result);
+    Helper::printLineToc($counter, sprintf('Logging into LiveDocx Premium (%01.2fs)', $duration), $result);
 
     $counter++;
 }

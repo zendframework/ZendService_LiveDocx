@@ -1155,7 +1155,7 @@ class MailMergeTest extends TestCase
     {
         if (!constant('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME')
                 || !constant('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD')) {
-            $this->markTestSkipped('LiveDocx Free Service tests disabled');
+            $this->markTestSkipped('LiveDocx Free tests disabled');
             return true;
         }
 
@@ -1193,7 +1193,7 @@ class MailMergeTest extends TestCase
     {
         if (!constant('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')
                 || !constant('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD')) {
-            $this->markTestSkipped('LiveDocx Premium Service tests disabled');
+            $this->markTestSkipped('LiveDocx Premium tests disabled');
             return true;
         }
 
