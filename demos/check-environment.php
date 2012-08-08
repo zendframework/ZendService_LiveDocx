@@ -83,7 +83,7 @@ $counter++;
 
 // -----------------------------------------------------------------------------
 
-if (true === method_exists('\Zend\Debug', 'dump')) {
+if (true === method_exists('\Zend\Debug\Debug', 'dump')) {
     $result = TEST_PASS;
 } else {
     $result = TEST_FAIL;
