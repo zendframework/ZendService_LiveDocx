@@ -11,11 +11,11 @@
 namespace ZendServiceTest\LiveDocx;
 
 use ZendService\LiveDocx\MailMerge;
-use Zend\Soap\Client as SoapClient;
+use Zend\Soap\Client           as SoapClient;
 use PHPUnit_Framework_TestCase as TestCase;
 
 
-class MailMergeTest extends \PHPUnit_Framework_TestCase
+class MailMergeTest extends TestCase
 {
     const TEST_IMAGE_1 = 'image-01.png';
     const TEST_IMAGE_2 = 'image-02.png';
@@ -51,7 +51,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
                     1 = implemented
                     0 = not implemented
 
-                Date: June 10, 2011
+                Last updated on August 08, 2012
             */
 
             /* +---------+---------+---------------------------------------------------------------------------------------------------------------------------+ */
@@ -150,7 +150,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
 
     public function testGetVersion()
     {
-        $this->assertEquals('2.0', $this->mailMerge->getVersion());
+        $this->assertEquals('2.1', $this->mailMerge->getVersion());
     }
 
     public function testGetSoapClient()
@@ -190,6 +190,32 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         unset($mailMerge);
     }
 
+    public function testSetServiceGetService()
+    {
+        $service = MailMerge::SERVICE_FREE;
+
+        $mailMerge = new MailMerge();
+        $mailMerge->setService($service);
+
+        $this->assertInstanceOf('ZendService\LiveDocx\MailMerge', $mailMerge->setService($service));
+
+        $this->assertEquals($service, $mailMerge->getService());
+
+        unset($mailMerge);
+    }
+
+    public function testSetServiceGetServiceInvalidService()
+    {
+        $this->setExpectedException('ZendService\LiveDocx\Exception\RuntimeException');
+
+        $service = 'invalid-service';
+
+        $mailMerge = new MailMerge();
+        $mailMerge->setService($service);
+
+        unset($mailMerge);
+    }
+
     public function testSetWsdlGetWsdlWithSoapClient()
     {
         $wsdl = 'http://example.com/somewhere.wsdl';
@@ -212,6 +238,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
             'username' => 'invalid-username',
             'password' => 'invalid-password',
             'wsdl'     => 'http://example.com/somewhere.wsdl',
+            'service'  => MailMerge::SERVICE_FREE,
         );
         $this->assertInstanceOf('ZendService\LiveDocx\MailMerge', $this->mailMerge->setOptions($options));
     }
@@ -226,6 +253,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
             'username' => 'invalid-username',
             'password' => 'invalid-password',
             'wsdl'     => 'http://example.com/somewhere.wsdl',
+            'service'  => MailMerge::SERVICE_FREE,
             'invalid-option-key' => 'invalid-option-value',
         );
         $this->mailMerge->setOptions($options);
@@ -245,7 +273,8 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('ZendService\LiveDocx\Exception\InvalidArgumentException');
 
         $mailMerge = new MailMerge();
-        $mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME);
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                  ->setService (MailMerge::SERVICE_FREE);
         $mailMerge->listTemplates();
         unset($mailMerge);
     }
@@ -256,7 +285,8 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
 
         $mailMerge = new MailMerge();
         $mailMerge->setUsername('invalid-username')
-                  ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
+                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+                  ->setService (MailMerge::SERVICE_FREE);
         $mailMerge->listTemplates();
         unset($mailMerge);
     }
@@ -266,7 +296,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('ZendService\LiveDocx\Exception\RuntimeException');
 
         $mailMerge = new MailMerge();
-        $mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME)
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
                   ->setPassword('invalid-password');
         $mailMerge->listTemplates();
         unset($mailMerge);
@@ -277,8 +307,8 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('ZendService\LiveDocx\Exception\RuntimeException');
 
         $mailMerge = new MailMerge();
-        $mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-                  ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD)
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
                   ->setWsdl('http://www.livedocx.com/file-not-found.wsdl');
         $mailMerge->listTemplates();
         unset($mailMerge);
@@ -313,8 +343,9 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
     {
         $mailMerge = new MailMerge();
 
-        $mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-                  ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+                  ->setService(MailMerge::SERVICE_FREE);
 
         $this->assertInstanceOf('ZendService\LiveDocx\MailMerge', $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1));
 
@@ -325,8 +356,8 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
     {
         $mailMerge = new MailMerge();
 
-        $mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-                  ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD)
+        $mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                  ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
                   ->setSoapClient(new SoapClient($this->mailMerge->getWsdl()));
 
         $this->assertInstanceOf('ZendService\LiveDocx\MailMerge', $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1));
@@ -338,8 +369,9 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
     {
         $mailMerge = new MailMerge(
             array (
-                'username' => TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME,
-                'password' => TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD
+                'username' => TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME,
+                'password' => TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD,
+                'service'  => MailMerge::SERVICE_FREE
             )
         );
 
@@ -352,8 +384,8 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
     {
         $mailMerge = new MailMerge(
             array (
-                'username'   => TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME,
-                'password'   => TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD,
+                'username'   => TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME,
+                'password'   => TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD,
                 'soapClient' => new SoapClient($this->mailMerge->getWsdl())
             )
         );
@@ -368,7 +400,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
     public function testSetLocalTemplate()
     {
         $this->assertInstanceOf('ZendService\LiveDocx\MailMerge', $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1));
-        $this->setExpectedException('ZendService\LiveDocx\Exception');
+        $this->setExpectedException('ZendService\LiveDocx\Exception\InvalidArgumentException');
         @$this->mailMerge->setLocalTemplate('phpunit-nonexistent.doc');
     }
 
@@ -453,7 +485,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
 
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(44273, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(44274, strlen($this->mailMerge->retrieveDocument('pdf')));
     }
 
     public function testSetIgnoreSubTemplates()
@@ -474,7 +506,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_1, self::TEST_INCLUDE_SUBTEMPLATE_2));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(56858, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(56889, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }
@@ -487,7 +519,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_1));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(58500, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(56889, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }
@@ -500,7 +532,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->mailMerge->setSubTemplateIgnoreList(array(self::TEST_INCLUDE_SUBTEMPLATE_2));
         $this->mailMerge->setRemoteTemplate(self::TEST_INCLUDE_MAINTEMPLATE);
         $this->mailMerge->createDocument();
-        $this->assertEquals(58406, strlen($this->mailMerge->retrieveDocument('pdf')));
+        $this->assertEquals(58437, strlen($this->mailMerge->retrieveDocument('pdf')));
 
         $this->tearDownPremium();
     }
@@ -654,11 +686,11 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         );
 
         $expectedResults = array(
-            'bmp'  => 'a1934f2153172f021847af7ece9049ce',
-            'gif'  => 'd7281d7b6352ff897917e25d6b92746f',
-            'jpg'  => 'e0b20ea2c9a6252886f689f227109085',
-            'png'  => 'c449f0c2726f869e9a42156e366f1bf9',
-            'tiff' => '20a96a94762a531e9879db0aa6bd673f',
+            'bmp'  => '60ec05924cb2cd162d787953c8f3a110',
+            'gif'  => '4d979d71c7e666d6bc46fa446c60b037',
+            'jpg'  => '66611a32a0d4e3a39a77fcd69259b166',
+            'png'  => '289ac53c67418b855a56515789f9c147',
+            'tiff' => '92f443a5dd482f6f20f65ce187dee6fd',
         );
 
         $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1);
@@ -683,11 +715,11 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         );
 
         $expectedResults = array(
-            'bmp'  => 'e8a884ee61c394deec8520fb397d1cf1',
-            'gif'  => '2255fee47b4af8438b109efc3cb0d304',
-            'jpg'  => 'e1acfc3001fc62567de2a489eccdb552',
-            'png'  => '15eac34d08e602cde042862b467fa865',
-            'tiff' => '98bad79380a80c9cc43dfffc5158d0f9',
+            'bmp'  => '392bce00e074ba0358ac6f2a39427fd4',
+            'gif'  => 'cf037e2947132e728a959ac147acfc43',
+            'jpg'  => 'ea852bbf30933ecf9806f6b436afe4ec',
+            'png'  => '8bd6f4d5d9b49effce583b561fd89bd8',
+            'tiff' => '78f96985bd56bb1941b6119c57546be1',
         );
 
         $this->mailMerge->setLocalTemplate($this->path . DIRECTORY_SEPARATOR . self::TEST_TEMPLATE_1);
@@ -720,7 +752,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($metafiles));
         $this->assertTrue(2 === count($metafiles));
 
-        foreach ($metafiles as $pageNumber => $pageContent) {
+        foreach ($metafiles as $pageContent) {
             $this->assertTrue(strlen($pageContent) > 5120);
         }
     }
@@ -746,7 +778,7 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($metafiles));
         $this->assertTrue(2 === count($metafiles));
 
-        foreach ($metafiles as $pageNumber => $pageContent) {
+        foreach ($metafiles as $pageContent) {
             $this->assertTrue(strlen($pageContent) > 5120);
         }
     }
@@ -1121,15 +1153,16 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        if (!constant('TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME')
-                || !constant('TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD')) {
-            $this->markTestSkipped('LiveDocx tests disabled');
+        if (!constant('TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME')
+                || !constant('TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD')) {
+            $this->markTestSkipped('LiveDocx Free tests disabled');
             return true;
         }
 
         $this->mailMerge = new MailMerge();
-        $this->mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_USERNAME)
-                        ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PASSWORD);
+        $this->mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
+                        ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
+                        ->setService (MailMerge::SERVICE_FREE);
 
         foreach ($this->mailMerge->listTemplates() as $template) {
             $this->mailMerge->deleteTemplate($template['filename']);
@@ -1158,17 +1191,16 @@ class MailMergeTest extends \PHPUnit_Framework_TestCase
 
     public function setUpPremium()
     {
-        if (!constant('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME') ||
-            !constant('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD') ||
-            !constant('TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL')) {
-            $this->markTestSkipped('Premium LiveDocx tests disabled');
+        if (!constant('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')
+                || !constant('TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD')) {
+            $this->markTestSkipped('LiveDocx Premium tests disabled');
             return true;
         }
 
         $this->mailMerge = new MailMerge();
-        $this->mailMerge->setUsername(TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_USERNAME)
-                        ->setPassword(TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_PASSWORD)
-                        ->setWsdl    (TESTS_ZEND_SERVICE_LIVEDOCX_PREMIUM_WSDL    );
+        $this->mailMerge->setUsername(TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME)
+                        ->setPassword(TESTS_ZENDSERVICE_LIVEDOCX_PREMIUM_PASSWORD)
+                        ->setService (MailMerge::SERVICE_PREMIUM);
 
         return true;
     }

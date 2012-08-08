@@ -1,1 +1,10 @@
 vendor/
+
+demos/DemoConfiguration.php
+tests/TestConfiguration.php
+
+composer.phar
+composer.lock
+
+demos/ZendService/LiveDocx/MailMerge/_zf2-docs-snippets
+demos/ZendService/LiveDocx/MailMerge/_zf2-stress

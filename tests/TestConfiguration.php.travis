@@ -17,4 +17,4 @@
  * Never commit passwords to the source code repository.
  */
 
-require_once __DIR__ . '/TestConfiguration.php.dist';
+include_once __DIR__ . '/TestConfiguration.php.dist';

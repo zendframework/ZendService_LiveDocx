@@ -19,12 +19,6 @@ use DateTime;
  */
 class MailMerge extends AbstractLiveDocx
 {
-    /**
-     * URI of LiveDocx.MailMerge WSDL.
-     * @since LiveDocx 1.0
-     */
-    const WSDL = 'https://api.livedocx.com/2.0/mailmerge.asmx?WSDL';
-
 
     /**
      * Field values
@@ -108,8 +102,6 @@ class MailMerge extends AbstractLiveDocx
      */
     public function __construct($options = null)
     {
-        $this->setWsdl(self::WSDL);
-
         parent::__construct($options);
     }
 
@@ -751,7 +743,7 @@ class MailMerge extends AbstractLiveDocx
      * @param  array filenames
      * @throws Exception\RuntimeException
      * @return MailMerge
-     * @since  LiveDocx 1.2
+     * @since  LiveDocx 1.2 Premium
      */
     public function setSubTemplateIgnoreList($filenames)
     {
@@ -1190,5 +1182,32 @@ class MailMerge extends AbstractLiveDocx
         $arrayKeys = array($arrayKeys);
 
         return array_merge($arrayKeys, $arrayValues);
+    }
+
+    /**
+     * Build the WSDL of backend LiveDocx.MailMerge service.
+     *
+     * @param string $service  Service
+     * @param string $username Username
+     * @param string $version  Version
+     * @return string
+     * @throws Exception
+     */
+    protected function buildWsdl($service, $username, $version)
+    {
+        $protocol = 'https';                            // as of LiveDocx 1.2 only
+                                                        // HTTPS is available
+        switch ($service) {
+            case self::SERVICE_FREE:
+                $hostname = 'api.livedocx.com';         // free service WSDL has
+                $id       = $version;                   // a version number in its URL
+                break;
+            case self::SERVICE_PREMIUM:
+                $hostname = 'premium01.livedocx.com';   // premium service WSDL does not have
+                $id       = $username;                  // a version number in its URL
+                break;
+        }
+
+        return sprintf('%s://%s/%s/mailmerge.asmx?wsdl', $protocol, $hostname, $id);
     }
 }
