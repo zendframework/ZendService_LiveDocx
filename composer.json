@@ -22,6 +22,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
+        "zendframework/zend-version": "=2.0.0rc2",
         "zendframework/zend-config": "=2.0.0rc2",
         "zendframework/zend-servicemanager": "=2.0.0rc2",
         "zendframework/zend-log": "=2.0.0rc2",

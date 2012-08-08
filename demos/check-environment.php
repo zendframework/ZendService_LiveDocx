@@ -3,7 +3,7 @@
 include_once realpath('./Bootstrap.php');
 
 
-use Zend\Version;
+use Zend\Version\Version;
 use ZendService\LiveDocx\MailMerge;
 use ZendService\LiveDocx\DemoHelper as Helper;
 
