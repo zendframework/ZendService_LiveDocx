@@ -22,7 +22,7 @@ $mailMerge = new MailMerge();
 
 $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
           ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
-          ->setService (MailMerge::SERVICE_FREE);  // for premium service, use MailMerge::SERVICE_PREMIUM
+          ->setService (MailMerge::SERVICE_FREE);  // for LiveDocx Premium, use MailMerge::SERVICE_PREMIUM
 
 $mailMerge->getTemplateFormats(); // then call methods as usual
 
@@ -47,7 +47,7 @@ $mailMerge = new MailMerge();
 $mailMerge = new MailMerge(array(
     'username' => DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME,
     'password' => DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD,
-     'service' => MailMerge::SERVICE_FREE));  // for premium service, use MailMerge::SERVICE_PREMIUM
+     'service' => MailMerge::SERVICE_FREE));  // for LiveDocx Premium, use MailMerge::SERVICE_PREMIUM
 
 $mailMerge->getTemplateFormats(); // then call methods as usual
 

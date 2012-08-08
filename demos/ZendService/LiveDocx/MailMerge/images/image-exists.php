@@ -16,7 +16,7 @@ $mailMerge = new MailMerge();
 
 $mailMerge->setUsername(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_USERNAME)
           ->setPassword(DEMOS_ZENDSERVICE_LIVEDOCX_FREE_PASSWORD)
-          ->setService (MailMerge::SERVICE_FREE);  // for premium service, use MailMerge::SERVICE_PREMIUM
+          ->setService (MailMerge::SERVICE_FREE);  // for LiveDocx Premium, use MailMerge::SERVICE_PREMIUM
 
 print('Checking whether an image is available... ');
 if (true === $mailMerge->imageExists('image-01.png')) {
