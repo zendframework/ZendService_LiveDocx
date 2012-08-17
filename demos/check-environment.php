@@ -312,7 +312,7 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
     $result = TEST_PASS;
 } else {
     $result = TEST_FAIL;
-    $failed = true;
+    $failed = false;
 }
 
 Helper::printLineToc($counter, 'Checking LiveDocx Premium credentials are defined', $result);
@@ -357,9 +357,9 @@ if (defined('DEMOS_ZENDSERVICE_LIVEDOCX_PREMIUM_USERNAME')     &&
 // -----------------------------------------------------------------------------
 
 if (true === $failed) {
-    $message = 'One or more tests failed. The web server environment, in which this script is running, does not meet the requirements for the Zend Framework LiveDocx component.';
+    $message = 'One or more tests failed. The web server environment, in which this script is running, does not meet the requirements for ZendService_LiveDocx.';
 } else {
-    $message = 'Congratulations! All tests passed. The server environment, in which this script is running, is suitable for the Zend Framework LiveDocx component.';
+    $message = 'Congratulations! All required tests passed. The server environment, in which this script is running, is suitable for ZendService_LiveDocx.';
 }
 
 Helper::printLine(PHP_EOL . $message . PHP_EOL . PHP_EOL);
