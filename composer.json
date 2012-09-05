@@ -22,15 +22,15 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-version": "=2.0.0rc6",
-        "zendframework/zend-config": "=2.0.0rc6",
-        "zendframework/zend-servicemanager": "=2.0.0rc6",
-        "zendframework/zend-log": "=2.0.0rc6",
-        "zendframework/zend-debug": "=2.0.0rc6",
-        "zendframework/zend-soap": "=2.0.0rc6",
-        "zendframework/zend-http": "=2.0.0rc6",
-        "zendframework/zend-uri": "=2.0.0rc6",
-        "zendframework/zend-version": "=2.0.0rc6"
+        "zendframework/zend-version": "=2.0.0rc7",
+        "zendframework/zend-config": "=2.0.0rc7",
+        "zendframework/zend-servicemanager": "=2.0.0rc7",
+        "zendframework/zend-log": "=2.0.0rc7",
+        "zendframework/zend-debug": "=2.0.0rc7",
+        "zendframework/zend-soap": "=2.0.0rc7",
+        "zendframework/zend-http": "=2.0.0rc7",
+        "zendframework/zend-uri": "=2.0.0rc7",
+        "zendframework/zend-version": "=2.0.0rc7"
     },
     "extra": {
         "branch-alias": {
