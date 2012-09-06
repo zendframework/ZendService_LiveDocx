@@ -1199,11 +1199,11 @@ class MailMerge extends AbstractLiveDocx
                                                         // HTTPS is available
         switch ($service) {
             case self::SERVICE_FREE:
-                $hostname = 'api.livedocx.com';         // free service WSDL has
+                $hostname = 'api.livedocx.com';         // WSDL of LiveDocx Free has
                 $id       = $version;                   // a version number in its URL
                 break;
             case self::SERVICE_PREMIUM:
-                $hostname = 'premium01.livedocx.com';   // premium service WSDL does not have
+                $hostname = 'premium01.livedocx.com';   // WSDL of LiveDocx Premium does not have
                 $id       = $username;                  // a version number in its URL
                 break;
         }
