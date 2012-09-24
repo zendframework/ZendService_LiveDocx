@@ -1,5 +1,4 @@
 {
-    "minimum-stability": "dev",
     "name": "zendframework/zendservice-livedocx",
     "description": "OOP wrapper for the LiveDocx web service",
     "type": "library",
@@ -22,19 +21,19 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-version": "=2.0.0rc4",
-        "zendframework/zend-config": "=2.0.0rc4",
-        "zendframework/zend-servicemanager": "=2.0.0rc4",
-        "zendframework/zend-log": "=2.0.0rc4",
-        "zendframework/zend-debug": "=2.0.0rc4",
-        "zendframework/zend-soap": "=2.0.0rc4",
-        "zendframework/zend-http": "=2.0.0rc4",
-        "zendframework/zend-uri": "=2.0.0rc4",
-        "zendframework/zend-version": "=2.0.0rc4"
+        "zendframework/zend-version": ">=2.0.0",
+        "zendframework/zend-config": ">=2.0.0",
+        "zendframework/zend-servicemanager": ">=2.0.0",
+        "zendframework/zend-log": ">=2.0.0",
+        "zendframework/zend-debug": ">=2.0.0",
+        "zendframework/zend-soap": ">=2.0.0",
+        "zendframework/zend-http": ">=2.0.0",
+        "zendframework/zend-uri": ">=2.0.0",
+        "zendframework/zend-version": ">=2.0.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
