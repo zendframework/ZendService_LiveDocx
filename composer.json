@@ -11,7 +11,7 @@
     "license": "BSD-3-Clause",
     "autoload": {
         "psr-0": {
-            "ZendService": "library/"
+            "ZendService\\LiveDocx\\": "library/"
         }
     },
     "repositories": [
