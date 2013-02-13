@@ -29,8 +29,7 @@
         "zendframework/zend-debug": ">=2.0.0",
         "zendframework/zend-soap": ">=2.0.0",
         "zendframework/zend-http": ">=2.0.0",
-        "zendframework/zend-uri": ">=2.0.0",
-        "zendframework/zend-version": ">=2.0.0"
+        "zendframework/zend-uri": ">=2.0.0"
     },
     "extra": {
         "branch-alias": {
